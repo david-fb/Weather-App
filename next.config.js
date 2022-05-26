@@ -2,6 +2,9 @@
 const nextConfig = {
   reactStrictMode: true,
   compress: true,
+  images: {
+    domains: ['cdn.weatherapi.com'],
+  },
 };
 
 module.exports = nextConfig;
