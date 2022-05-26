@@ -1,0 +1,14 @@
+.container {
+    width: 100%;
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    &__menu {
+        display: flex;
+        list-style: none;
+        justify-content: center;
+        gap: 10px;
+        font-size: 20px;
+        padding: 10px 0px;
+    }
+}
