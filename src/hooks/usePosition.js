@@ -3,11 +3,12 @@ export const usePosition = () => {
   const [position, setPosition] = useState({});
   const [error, setError] = useState(null);
 
-  const onChange = ({ coords }) => {
+  const onSuccess = ({ coords }) => {
     setPosition({ lon: coords.longitude, lat: coords.latitude });
   };
 
   const onError = (error) => {
+    setPosition({});
     setError(error.message);
   };
 
@@ -17,9 +18,16 @@ export const usePosition = () => {
       setError('Geolocation is not supported');
       return;
     }
-    let watcher = geo.watchPosition(onChange, onError);
+    geo.getCurrentPosition(onSuccess, onError);
 
-    return () => geo.clearWatch(watcher);
+    navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
+      console.log('geolocation permission state is ', permissionStatus.state);
+
+      permissionStatus.onchange = function () {
+        console.log('geolocation permission state has changed to ', this.state);
+        geo.getCurrentPosition(onSuccess, onError);
+      };
+    });
   }, []);
 
   return { ...position, error };
