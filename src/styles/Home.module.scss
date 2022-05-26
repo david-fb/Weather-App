@@ -1,3 +1,15 @@
 .container {
-  padding: 0 2rem;
+  width: 100%;
+  flex: 1;
+  position: relative;
+  background-image: url('../assets/images/day-bg4-min.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  //background-color: salmon;
+  padding: 5px;
 }
