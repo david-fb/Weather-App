@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba($color: #000, $alpha: .48);
+    backdrop-filter: blur(5px);
+    min-width: 250px;
+    max-width: 500px;
+    padding: 16px;
+    border-radius: 5px;
+    //box-shadow: inset -3px -3px 10px rgba($color: #fff, $alpha: .28);
+    color: #fff;
+
+    &__location {
+        font-size: 32px;
+    }
+
+    &__country {
+        font-size: 16px;
+        font-weight: 200;
+        margin-top: -5px;
+    }
+
+    &__temperature {
+        font-size: 62px;
+        font-weight: bold;
+        // line-height: .8;
+    }
+
+    figure {
+        position: relative;
+        width: 128px;
+        aspect-ratio: 1 / 1;
+    }
+}
