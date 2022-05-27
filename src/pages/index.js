@@ -4,6 +4,7 @@ import { usePosition } from 'hooks/usePosition';
 import AppContext from '@context/AppContext';
 import Search from '@components/Search';
 import CurrentWeather from '@components/CurrentWeather';
+import WeatherFactors from '@components/WeatherFactors';
 import ForecastWeather from '@components/ForecastWeather';
 import Navbar from '@components/Navbar';
 import styles from '@styles/Home.module.scss';
@@ -28,6 +29,7 @@ export default function Home() {
     <main className={styles.container}>
       <Search />
       <CurrentWeather />
+      <WeatherFactors />
       <ForecastWeather />
       <Navbar />
     </main>

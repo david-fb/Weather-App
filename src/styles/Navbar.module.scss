@@ -1,8 +1,9 @@
 .container {
     width: 100%;
     background-color: #fff;
-    position: fixed;
+    position: sticky;
     bottom: 0;
+    height: 60px;
     &__menu {
         display: flex;
         list-style: none;

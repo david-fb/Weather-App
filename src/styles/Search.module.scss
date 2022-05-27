@@ -2,31 +2,35 @@
 
 .container {
     display: flex;
-    background-color: rgba($color: #000000, $alpha: .48);
+    background-color: rgba($color: #989898, $alpha: 1);
     width: 100%;
-    max-width: 240px;
-    padding: 5px 0px;
+    max-width: 280px;
+    //padding: 5px 10px;
     gap: 5px;
     align-items: center;
-    justify-content: center;
-    height: 40px;
+    justify-content: flex-start;
     position: relative;
     border-radius: 5px;
     color: #fff;
+    margin-top: 30px;
 
     figure {
         position: relative;
         background: none;
         border: none;
-        height: 100%;
+        height: 40px;
         aspect-ratio: 1 / 1;
-        filter: invert(90%);
+        background: #434343;
+        padding: 5px;
+        border-top-left-radius: 5px;
+        border-bottom-left-radius: 5px;
     }
 
     input {
         background: none;
         border: none;
-        height: 100%;
+        width: 100%;
+        font-size: 15px;
         color: #fff;
     }
     input::placeholder {
@@ -46,9 +50,11 @@
         max-height: 200px;
         overflow-y: scroll;
         z-index: 999;
+        border-radius: 5px;
 
         li {
-            padding: 3px 5px;
+            padding: 5px 10px;
+            font-size: 16px;
 
             button {
                 background: none;

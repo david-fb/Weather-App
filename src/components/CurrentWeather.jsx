@@ -7,6 +7,7 @@ export default function CurrentWeather() {
   const { weather } = useContext(AppContext);
   return (
     <section className={styles['container']}>
+      <p>{weather?.current?.localtime}</p>
       <h1 className={styles['container__location']}>{weather?.current?.locationName}</h1>
       <h2 className={styles['container__country']}>{weather?.current?.country}</h2>
       {/* {weather?.current?.conditionIcon && (

@@ -15,16 +15,19 @@ const getWeatherFrom = async (query) => {
 
     const { location, current, forecast } = data;
     const { country, localtime, name } = location;
-    const { condition, humidity, feelslike_c, feelsLike_f, is_day, temp_c, temp_f, wind_mph, wind_kph, wind_dir } = current;
+    const { condition, humidity, feelslike_c, feelsLike_f, is_day, temp_c, temp_f, wind_mph, wind_kph, wind_dir, pressure_mb, pressure_in, uv } = current;
     const { forecastday } = forecast;
     const { text, icon } = condition;
+
+    const today = new Date(localtime);
+    let optionsDate = { weekday: 'long', month: 'long', day: 'numeric' };
 
     const body = {
       current: {
         conditionText: text,
         conditionIcon: icon,
         country,
-        localtime,
+        localtime: today.toLocaleDateString('en-US', optionsDate),
         locationName: name,
         humidity,
         isDay: is_day,
@@ -32,6 +35,8 @@ const getWeatherFrom = async (query) => {
         temperature: { C: temp_c, F: temp_f },
         windSpeed: { K: wind_kph, M: wind_mph },
         windDir: wind_dir,
+        pressure: { M: pressure_mb, I: pressure_in },
+        uv,
       },
       forecast: { ...forecastday },
     };
