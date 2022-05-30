@@ -8,6 +8,49 @@ const options = {
   },
 };
 
+const formatForecast = (forecast) => {
+  let optionsDate = { weekday: 'long' };
+  let optionsDateHour = { hour: '2-digit', minute: '2-digit' };
+  const dailyForecast = [];
+
+  for (let i = 0; i < forecast.length; i++) {
+    dailyForecast[i] = {
+      date: new Date(forecast[i].date.split('-').join('/')).toLocaleDateString('en-US', optionsDate),
+      day: {
+        maxtemp_c: forecast[i].day.maxtemp_c,
+        mintemp_c: forecast[i].day.mintemp_c,
+        maxtemp_f: forecast[i].day.maxtemp_f,
+        mintemp_f: forecast[i].day.mintemp_f,
+        condition: {
+          icon: forecast[i].day.condition.icon,
+        },
+      },
+      hour: forecast[i].hour.map((hour) => {
+        return {
+          time: new Date(hour.time).toLocaleTimeString('en-US', optionsDateHour),
+          condition: {
+            icon: hour.condition.icon,
+          },
+          temp_c: hour.temp_c,
+          temp_f: hour.temp_f,
+        };
+      }),
+    };
+    if (i === 0) {
+      dailyForecast[i] = {
+        ...dailyForecast[i],
+        date: 'Today',
+      };
+    } else if (i == 1) {
+      dailyForecast[i] = {
+        ...dailyForecast[i],
+        date: 'Tomorrow',
+      };
+    }
+  }
+  return dailyForecast;
+};
+
 const getWeatherFrom = async (query) => {
   try {
     const response = await fetch(endPoints.forecastWeatherFrom(query), options);
@@ -21,7 +64,6 @@ const getWeatherFrom = async (query) => {
 
     const today = new Date(localtime);
     let optionsDate = { weekday: 'long', month: 'long', day: 'numeric' };
-
     const body = {
       current: {
         conditionText: text,
@@ -38,7 +80,7 @@ const getWeatherFrom = async (query) => {
         pressure: { M: pressure_mb, I: pressure_in },
         uv,
       },
-      forecast: { ...forecastday },
+      forecast: formatForecast(forecastday),
     };
 
     return { ...body };

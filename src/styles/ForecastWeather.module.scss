@@ -19,51 +19,28 @@
     padding-bottom: 30px;
     margin-top: -5px;
 
-    &__title {
+    &__control {
+        display: flex;
         width: 100%;
-        max-width: 300px;
-    }
-
-    &__daily {
-        list-style: none;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 100px);
-        grid-auto-flow: column;
-        grid-gap: 5px;
-        overflow-x: auto;
         max-width: 350px;
-        padding: 0px 3px;
-
-        &__item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            width: 100px;
-            position: relative;
-            min-height: 80px;
-            &-title {
-                font-weight: 400;
-                font-size: 15px;
-            }
-            &-content {
-                background-color: rgba($color: $--light, $alpha: 0.08);
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                padding: 3px 3px 10px;
-                border-radius: 5px;
-                box-shadow: 0px 0px 5px rgba($color: $--dark, $alpha: 0.20);
-                backdrop-filter: blur(5px);
-                text-align: center;
-                &-image {
-                    margin: 0 auto;
-                    position: relative;
-                    width: 64px;
-                    aspect-ratio: 1 / 1;
-                }
-            }
+        margin-bottom: 10px;
+        &__title {
+            width: 100%;
+            max-width: 300px;
+            background: none;
+            border: none;
+            font-size: 16px;
+            color: rgba($color: $--light, $alpha: .7);
+            cursor: pointer;
+            
+        }
+        & .active {
+            font-size: 21px;
+            color: $--light;
+            font-weight: 600;
         }
     }
+
 }
 
 .day {

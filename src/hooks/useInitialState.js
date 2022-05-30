@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 let initialState = {
   temperature: 'C',
   speed: 'K',
+  pressure: 'M',
   location: '',
   defaultLocation: '3.4129,-76.5191',
   myCities: [],

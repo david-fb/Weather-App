@@ -2,11 +2,11 @@ import { useEffect, useContext, useState } from 'react';
 import { getWeatherFrom } from '@services/api/weather';
 import { usePosition } from 'hooks/usePosition';
 import AppContext from '@context/AppContext';
-import Search from '@components/Search';
-import CurrentWeather from '@components/CurrentWeather';
-import WeatherFactors from '@components/WeatherFactors';
-import ForecastWeather from '@components/ForecastWeather';
-import Navbar from '@components/Navbar';
+import Search from '@containers/Search';
+import CurrentWeather from '@containers/CurrentWeather';
+import WeatherFactors from '@containers/WeatherFactors';
+import ForecastWeather from '@containers/ForecastWeather';
+import Navbar from '@containers/Navbar';
 import styles from '@styles/Home.module.scss';
 
 export default function Home() {

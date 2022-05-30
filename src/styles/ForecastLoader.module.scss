@@ -1,0 +1,15 @@
+.container {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 100px);
+    grid-auto-flow: column;
+    grid-gap: 5px;
+    overflow-x: auto;
+    max-width: 350px;
+
+    &__item {
+        width: 100px;
+        position: relative;
+        min-height: 80px;
+    }
+}

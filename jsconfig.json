@@ -9,6 +9,8 @@
       "@hooks/*": ["hooks/*"],
       "@context/*": ["context/*"],
       "@assets/*": ["assets/*"],
+      "@common/*": ["common/*"],
+      "@containers/*": ["containers/*"],
     }
   }
 }
