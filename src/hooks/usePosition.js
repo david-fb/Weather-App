@@ -21,8 +21,6 @@ export const usePosition = () => {
     geo.getCurrentPosition(onSuccess, onError);
 
     navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
-      console.log('geolocation permission state is ', permissionStatus.state);
-
       permissionStatus.onchange = function () {
         console.log('geolocation permission state has changed to ', this.state);
         geo.getCurrentPosition(onSuccess, onError);

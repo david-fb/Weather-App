@@ -4,6 +4,7 @@
     position: sticky;
     bottom: 0;
     height: 60px;
+    z-index: 999;
     &__menu {
         display: flex;
         list-style: none;

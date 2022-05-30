@@ -1,16 +1,19 @@
+@import 'vars';
 .container {
   list-style: none;
   display: grid;
   grid-template-columns: repeat(2, 100px);
   grid-gap: 5px;
-  color: #fff;
+  color: $--light;
   margin-top: 10px;
   &__item {
     text-align: center;
-    background-color: rgba($color: #102054, $alpha: 0.48);
-    box-shadow: inset -3px -3px 10px rgba($color: #102054, $alpha: 0.28);
+    background-color: rgba($color: $--night-primary, $alpha: 0.48);
+    box-shadow: inset -3px -3px 10px rgba($color: $--night-primary, $alpha: 0.28);
     border-radius: 5px;
     padding: 5px;
+    position: relative;
+    min-height: 60px;
     div {
       display: flex;
       gap: 5px;
@@ -28,6 +31,6 @@
 }
 
 .day {
-  background-color: rgba($color: #192d19, $alpha: 0.48);
-  box-shadow: inset -3px -3px 10px rgba($color: #192d19, $alpha: 0.28);
+  background-color: rgba($color: $--day-primary, $alpha: 0.48);
+  box-shadow: inset -3px -3px 10px rgba($color: $--day-primary, $alpha: 0.28);
 }

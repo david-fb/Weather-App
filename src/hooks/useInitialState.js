@@ -3,6 +3,8 @@ let initialState = {
   temperature: 'C',
   speed: 'K',
   location: '',
+  defaultLocation: '3.4129,-76.5191',
+  myCities: [],
 };
 
 const useInitialState = () => {

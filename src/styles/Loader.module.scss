@@ -1,0 +1,49 @@
+@import 'vars';
+.container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.loading {
+    background-color: rgba($color: $--night-primary, $alpha: .4);
+    overflow: hidden;
+  }
+  .loading::after {
+    display: block;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-100%);
+    animation: 2s loading linear 0.5s infinite;
+    background: linear-gradient(90deg, transparent, rgba($color: #06174e, $alpha: .6), transparent);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+
+  .day {
+    background-color: rgba($color: $--day-primary, $alpha: .4);
+
+    &::after {
+        background: linear-gradient(90deg, transparent, rgba($color: #063f06, $alpha: .6), transparent);
+    }
+  }
+  
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    60% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }

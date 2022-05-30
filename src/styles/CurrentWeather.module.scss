@@ -1,56 +1,58 @@
+@import 'vars';
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba($color: #102054, $alpha: .48);
-    min-width: 250px;
-    max-width: 500px;
-    padding: 16px;
-    border-radius: 5px;
-    box-shadow: inset -3px -3px 10px rgba($color: #102054, $alpha: .28);
-    color: #fff;
-    margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba($color: $--night-primary, $alpha: 0.48);
+  min-width: 250px;
+  min-height: 200px;
+  max-width: 500px;
+  padding: 16px;
+  border-radius: 5px;
+  box-shadow: inset -3px -3px 10px rgba($color: $--night-primary, $alpha: 0.28);
+  color: $--light;
+  margin-top: 30px;
+  position: relative;
 
-    &__location {
-        text-align: center;
-        line-height: 1.1;
-        &__time {
-            font-size: 16px;
-        }
-        &__city {
-            font-size: 26px;
-        }
-        &__country {
-            font-size: 16px;
-            font-weight: 200;
-        }
+  &__location {
+    text-align: center;
+    line-height: 1.1;
+    &__time {
+      font-size: 16px;
     }
+    &__city {
+      font-size: 26px;
+    }
+    &__country {
+      font-size: 16px;
+      font-weight: 200;
+    }
+  }
 
-
-    &__temperature {
-        line-height: .9;
-        text-align: center;
-        margin-top: 20px;
-        &__number {
-            font-size: 72px;
-            font-weight: 600;
-            span {
-                font-weight: 400;
-                font-size: 40px;
-                vertical-align: top;
-            }
-        }
-        &__text {
-            font-size: 16px;
-            font-weight: 400;
-        }
+  &__temperature {
+    line-height: 0.9;
+    text-align: center;
+    margin-top: 20px;
+    &__number {
+      font-size: 72px;
+      font-weight: 600;
+      span {
+        font-weight: 400;
+        font-size: 40px;
+        vertical-align: top;
+      }
     }
-    &__feelsLike {
-        margin-top: 20px;
+    &__text {
+      font-size: 16px;
+      font-weight: 400;
     }
+  }
+  &__feelsLike {
+    margin-top: 20px;
+  }
 }
 
 .day {
-    background-color: rgba($color: #192d19, $alpha: .48);
-    box-shadow: inset -3px -3px 10px rgba($color: #192d19, $alpha: .28);
+  background-color: rgba($color: $--day-primary, $alpha: 0.48);
+  box-shadow: inset -3px -3px 10px rgba($color: $--day-primary, $alpha: 0.28);
 }
