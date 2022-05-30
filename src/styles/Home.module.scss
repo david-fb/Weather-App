@@ -2,13 +2,15 @@
   width: 100%;
   max-width: 900px;
   flex: 1;
-  // position: relative;
-  // background-image: url('../assets/images/day-min.jpg');
-  // background-position: center;
-  // background-size: cover;
-  // background-repeat: no-repeat;
+  position: relative;
+  background-image: url('../assets/images/night-bg.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #212121;
+}
+.day {
+  background-image: url('../assets/images/day-bg.jpg');
 }

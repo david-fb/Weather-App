@@ -1,25 +1,33 @@
 .container {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 100px);
-    row-gap: 5px;
-    column-gap: 10px;
-    color: #fff;
-    margin-top: 10px;
-    li {
-        text-align: center;
-        div {
-            display: flex;
-            gap: 5px;
-            width: 100%;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            figure {
-                position: relative;
-                width: 20px;
-                aspect-ratio: 1 / 1;
-            }
-        }
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  grid-gap: 5px;
+  color: #fff;
+  margin-top: 10px;
+  &__item {
+    text-align: center;
+    background-color: rgba($color: #102054, $alpha: 0.48);
+    box-shadow: inset -3px -3px 10px rgba($color: #102054, $alpha: 0.28);
+    border-radius: 5px;
+    padding: 5px;
+    div {
+      display: flex;
+      gap: 5px;
+      width: 100%;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      figure {
+        position: relative;
+        width: 20px;
+        aspect-ratio: 1 / 1;
+      }
     }
+  }
+}
+
+.day {
+  background-color: rgba($color: #192d19, $alpha: 0.48);
+  box-shadow: inset -3px -3px 10px rgba($color: #192d19, $alpha: 0.28);
 }

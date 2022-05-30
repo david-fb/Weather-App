@@ -2,45 +2,43 @@
 
 .container {
     display: flex;
-    background-color: rgba($color: #989898, $alpha: 1);
+    background-color: #fff;
+    backdrop-filter: blur(5px);
     width: 100%;
     max-width: 280px;
-    //padding: 5px 10px;
     gap: 5px;
     align-items: center;
     justify-content: flex-start;
     position: relative;
     border-radius: 5px;
-    color: #fff;
     margin-top: 30px;
 
-    figure {
+    &__image {
         position: relative;
-        background: none;
-        border: none;
         height: 40px;
         aspect-ratio: 1 / 1;
-        background: #434343;
-        padding: 5px;
+        display: grid;
+        place-items: center;
+        background: #102054;
         border-top-left-radius: 5px;
         border-bottom-left-radius: 5px;
     }
 
-    input {
+    &__input {
         background: none;
         border: none;
         width: 100%;
         font-size: 15px;
-        color: #fff;
+        color: #102054;
     }
-    input::placeholder {
-        color: rgba($color: #fff, $alpha: .78);
+    &__input::placeholder {
+        color: rgba($color: #102054, $alpha: .78);
     }
-    input:focus {
+    &__input:focus {
         outline: none;
     }
 
-    ul {
+    &__results {
         list-style: none;
         background-color: #f6f7fb;
         position: absolute;
@@ -51,6 +49,7 @@
         overflow-y: scroll;
         z-index: 999;
         border-radius: 5px;
+        box-shadow: 0px 0px 8px rgba($color: #000, $alpha: 0.28);
 
         li {
             padding: 5px 10px;
@@ -62,6 +61,26 @@
                 width: 100%;
                 height: 100%;
                 text-align: start;
+                color: #102054;
+            }
+        }
+    }
+}
+
+.day {
+    figure {
+        background: #192d19;
+    }
+    input {
+        color: #192d19;
+    }
+    input::placeholder {
+        color: rgba($color: #192d19, $alpha: .78);
+    }
+    ul {
+        li {
+            button {
+                color: #192d19;
             }
         }
     }

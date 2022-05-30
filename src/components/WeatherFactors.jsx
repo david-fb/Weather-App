@@ -11,7 +11,7 @@ export default function WeatherFactors() {
   const { weather } = useContext(AppContext);
   return (
     <ul className={styles['container']}>
-      <li>
+      <li className={`${styles['container__item']} ${weather?.current?.isDay && styles['day']}`}>
         <h3>Wind</h3>
         <div>
           <figure>
@@ -20,7 +20,7 @@ export default function WeatherFactors() {
           <p>{weather?.current?.windSpeed.K} kmh</p>
         </div>
       </li>
-      <li>
+      <li className={`${styles['container__item']} ${weather?.current?.isDay && styles['day']}`}>
         <h3>Humidity</h3>
         <div>
           <figure>
@@ -29,7 +29,7 @@ export default function WeatherFactors() {
           <p>{weather?.current?.humidity}%</p>
         </div>
       </li>
-      <li>
+      <li className={`${styles['container__item']} ${weather?.current?.isDay && styles['day']}`}>
         <h3>Pressure</h3>
         <div>
           <figure>
@@ -38,7 +38,7 @@ export default function WeatherFactors() {
           <p>{weather?.current?.pressure.M} mn</p>
         </div>
       </li>
-      <li>
+      <li className={`${styles['container__item']} ${weather?.current?.isDay && styles['day']}`}>
         <h3>UV Index</h3>
         <div>
           <figure>

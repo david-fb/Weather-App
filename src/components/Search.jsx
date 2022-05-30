@@ -6,7 +6,7 @@ import searchIcon from '@assets/icons/search.svg';
 import styles from '@styles/Search.module.scss';
 
 export default function Search() {
-  const { setLocation } = useContext(AppContext);
+  const { setLocation, weather } = useContext(AppContext);
   const [inputValue, setInputValue] = useState('');
   const [searchData, setSearchData] = useState([]);
 
@@ -22,19 +22,18 @@ export default function Search() {
   }, [inputValue]);
 
   const changeLocation = (item) => {
-    console.log(item);
     setLocation(item.url);
     setSearchData([]);
     setInputValue('');
   };
 
   return (
-    <div className={styles['container']}>
-      <figure>
-        <Image src={searchIcon} alt="search" />
+    <div className={`${styles['container']} ${weather?.current?.isDay && styles['day']}`}>
+      <figure className={`${styles['container__image']}`}>
+        <Image src={searchIcon} alt="search" width={25} height={25} />
       </figure>
-      <input type="text" placeholder="Change location..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-      <ul>
+      <input className={`${styles['container__input']}`} type="text" placeholder="Change location..." value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+      <ul className={`${styles['container__results']}`}>
         {searchData.map((item) => (
           <li key={item?.id}>
             <button onClick={() => changeLocation(item)}>

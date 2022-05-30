@@ -10,7 +10,7 @@ import Navbar from '@components/Navbar';
 import styles from '@styles/Home.module.scss';
 
 export default function Home() {
-  const { preferences, setLocation, setWeather } = useContext(AppContext);
+  const { preferences, setLocation, setWeather, weather } = useContext(AppContext);
   const { lat, lon, error } = usePosition();
 
   useEffect(() => {
@@ -26,7 +26,7 @@ export default function Home() {
   }, [preferences.location]);
 
   return (
-    <main className={styles.container}>
+    <main className={`${styles.container} ${weather?.current?.isDay && styles['day']}`}>
       <Search />
       <CurrentWeather />
       <WeatherFactors />
