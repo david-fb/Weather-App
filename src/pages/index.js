@@ -6,7 +6,6 @@ import Search from '@containers/Search';
 import CurrentWeather from '@containers/CurrentWeather';
 import WeatherFactors from '@containers/WeatherFactors';
 import ForecastWeather from '@containers/ForecastWeather';
-import Navbar from '@containers/Navbar';
 import styles from '@styles/Home.module.scss';
 
 export default function Home() {
@@ -35,7 +34,6 @@ export default function Home() {
       <CurrentWeather isLoading={isLoading} />
       <WeatherFactors isLoading={isLoading} />
       <ForecastWeather isLoading={isLoading} />
-      <Navbar />
     </main>
   );
 }
