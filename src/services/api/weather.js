@@ -58,7 +58,7 @@ const getWeatherFrom = async (query) => {
 
     const { location, current, forecast } = data;
     const { country, localtime, name } = location;
-    const { condition, humidity, feelslike_c, feelsLike_f, is_day, temp_c, temp_f, wind_mph, wind_kph, wind_dir, pressure_mb, pressure_in, uv } = current;
+    const { condition, humidity, feelslike_c, feelslike_f, is_day, temp_c, temp_f, wind_mph, wind_kph, wind_dir, pressure_mb, pressure_in, uv } = current;
     const { forecastday } = forecast;
     const { text, icon } = condition;
 
@@ -74,7 +74,7 @@ const getWeatherFrom = async (query) => {
         locationName: name,
         humidity,
         isDay: is_day,
-        feelsLike: { C: feelslike_c, F: feelsLike_f },
+        feelsLike: { C: feelslike_c, F: feelslike_f },
         temperature: { C: temp_c, F: temp_f },
         windSpeed: { K: wind_kph, M: wind_mph },
         windDir: wind_dir,
