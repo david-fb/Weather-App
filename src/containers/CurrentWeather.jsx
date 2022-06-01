@@ -12,7 +12,11 @@ export default function CurrentWeather({ isLoading }) {
   useEffect(() => {
     if (preferences.myCities.length && weather?.url) {
       const isFavorite = preferences.myCities.some((city) => city === weather.url);
-      if (isFavorite) buttonFavoriteRef?.current?.classList.add(styles['active']);
+      if (isFavorite) {
+        buttonFavoriteRef?.current?.classList.add(styles['active']);
+      } else {
+        buttonFavoriteRef?.current?.classList.remove(styles['active']);
+      }
     }
   }, [weather]);
 
