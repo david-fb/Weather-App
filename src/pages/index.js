@@ -14,7 +14,7 @@ export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (lat && lon) {
+    if (lat && lon && !preferences.location) {
       const locationUser = `${lat},${lon}`;
       setLocation(locationUser);
     }

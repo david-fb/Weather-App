@@ -5,12 +5,11 @@ export default function Navbar() {
     <nav className={styles['container']}>
       <ul className={styles['container__menu']}>
         <li>
-          <Link href="/mycities">Bookmarks</Link>
-        </li>
-        <li>
           <Link href="/">Home</Link>
         </li>
-        <li>Settings</li>
+        <li>
+          <Link href="/mycities">My Cities</Link>
+        </li>
       </ul>
     </nav>
   );

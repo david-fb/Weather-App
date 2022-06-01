@@ -1,0 +1,57 @@
+@import 'vars';
+.container {
+    width: 100%;
+    background: rgba($color: $--light, $alpha: .08);
+    border-radius: 10px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    color: $--light;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &__location {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__city {
+            font-size: 32px;
+            font-weight: bold;
+        }
+        &__country {
+            font-size: 14px;
+            font-weight: normal;
+            margin-top: -5px;
+        }
+    }
+
+    &__temperature {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        &__text {
+            font-size: 60px;
+            font-weight: bold;
+            z-index: 1;
+            margin-right: 20px;
+        }
+        &__remove {
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-weight: 400;
+            color: red;
+        }
+        &__image {
+            position: absolute;
+            width: 128px;
+            height: 128px;
+            opacity: .28;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+}

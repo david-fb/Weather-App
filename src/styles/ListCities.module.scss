@@ -1,0 +1,9 @@
+.container {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 400px;
+    gap: 10px;
+}

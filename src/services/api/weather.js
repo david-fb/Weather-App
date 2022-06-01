@@ -65,6 +65,7 @@ const getWeatherFrom = async (query) => {
     const today = new Date(localtime);
     let optionsDate = { weekday: 'long', month: 'long', day: 'numeric' };
     const body = {
+      url: query,
       current: {
         conditionText: text,
         conditionIcon: icon,
@@ -100,4 +101,13 @@ const searchLocation = async (query) => {
   }
 };
 
-module.exports = { getWeatherFrom, searchLocation };
+const getWeatherFromList = async (list) => {
+  const cities = [];
+  for (let i = 0; i < list.length; i++) {
+    const res = await getWeatherFrom(list[i]);
+    cities.push(res);
+  }
+  return cities;
+};
+
+module.exports = { getWeatherFrom, searchLocation, getWeatherFromList };
