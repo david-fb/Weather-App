@@ -1,7 +1,10 @@
+import { useContext } from 'react';
+import AppContext from '@context/AppContext';
 import Image from 'next/image';
 import styles from '@styles/HourlyForecast.module.scss';
 
 export default function HourlyForecast({ forecast }) {
+  const { preferences } = useContext(AppContext);
   return (
     <ul className={styles['container']}>
       {forecast?.length &&
@@ -12,7 +15,7 @@ export default function HourlyForecast({ forecast }) {
               <figure className={styles['container__item-content-image']}>
                 <Image src={`https:${item.condition.icon}`} layout="fill" alt="weather condition" />
               </figure>
-              <p className={styles['container__item-content-temperature']}>{item.temp_c}&#xb0;</p>
+              <p className={styles['container__item-content-temperature']}>{preferences.unit === 'C' ? item.temp_c : item.temp_f}&#xb0;</p>
             </div>
           </li>
         ))}

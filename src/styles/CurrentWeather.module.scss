@@ -51,9 +51,8 @@
       font-weight: 600;
     }
     span {
-      font-weight: 400;
+      font-weight: 200;
       font-size: 40px;
-      vertical-align: top;
     }
     &__button {
       background: none;
@@ -61,6 +60,7 @@
       height: fit-content;
       font-size: 40px;
       color: #ddd;
+      cursor: pointer;
     }
     &__text {
       font-size: 16px;

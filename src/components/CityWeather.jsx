@@ -4,7 +4,7 @@ import AppContext from '@context/AppContext';
 import styles from '@styles/CityWeather.module.scss';
 
 export default function CityWeather({ city }) {
-  const { removeCity } = useContext(AppContext);
+  const { preferences, removeCity } = useContext(AppContext);
 
   return (
     <li className={styles['container']}>
@@ -15,7 +15,7 @@ export default function CityWeather({ city }) {
       </div>
       <div className={styles['container__temperature']}>
         <p className={styles['container__temperature__text']}>
-          {city?.current.temperature?.C}
+          {preferences.unit === 'C' ? city?.current.temperature?.C : city?.current.temperature?.F}
           <span>&#xb0;</span>
         </p>
         <button onClick={() => removeCity(city.url)} className={styles['container__temperature__remove']}>

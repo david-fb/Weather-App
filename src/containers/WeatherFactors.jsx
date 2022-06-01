@@ -41,12 +41,12 @@ export default function WeatherFactors({ isLoading }) {
       const body = [
         {
           title: 'Wind',
-          value: `${preferences.speed === 'K' ? `${windSpeed.K} km/h` : `${windSpeed.M} mph`}`,
+          value: `${preferences.unit === 'C' ? `${windSpeed.K} km/h` : `${windSpeed.M} mph`}`,
           image: windIcon,
         },
         {
           title: 'Pressure',
-          value: `${preferences.pressure === 'M' ? `${pressure.M} mb` : `${pressure.I} in`} `,
+          value: `${preferences.unit === 'C' ? `${pressure.M} mb` : `${pressure.I} in`} `,
           image: pressureIcon,
         },
         {

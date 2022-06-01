@@ -1,7 +1,10 @@
-import styles from '@styles/DailyForecast.module.scss';
+import { useContext } from 'react';
+import AppContext from '@context/AppContext';
 import Image from 'next/image';
+import styles from '@styles/DailyForecast.module.scss';
 
 export default function DailyForecast({ daily }) {
+  const { preferences } = useContext(AppContext);
   return (
     <ul className={styles['container']}>
       {daily?.map((item, index) => (
@@ -12,7 +15,7 @@ export default function DailyForecast({ daily }) {
               <Image src={`https:${item.day.condition.icon}`} layout="fill" alt="weather condition" />
             </figure>
             <p className={styles['container__item-content-temperature']}>
-              {item.day.mintemp_c}&#xb0;/{item.day.maxtemp_c}&#xb0;
+              {preferences.unit === 'C' ? item.day.mintemp_c : item.day.mintemp_f}&#xb0;/{preferences.unit === 'C' ? item.day.maxtemp_c : item.day.maxtemp_f}&#xb0;
             </p>
           </div>
         </li>
