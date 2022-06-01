@@ -6,7 +6,7 @@ import Loader from 'common/loader';
 import styles from '@styles/CurrentWeather.module.scss';
 
 export default function CurrentWeather({ isLoading }) {
-  const { weather, setMyCities, preferences, removeCity } = useContext(AppContext);
+  const { weather, setMyCities, preferences, removeCity, setUnit } = useContext(AppContext);
   const buttonFavoriteRef = useRef(null);
 
   useEffect(() => {
@@ -31,6 +31,12 @@ export default function CurrentWeather({ isLoading }) {
       buttonFavoriteRef.current.classList.add(styles['active']);
     }
   };
+  const changeUnit = (unit) => {
+    if (preferences.unit !== unit) {
+      setUnit(unit);
+    }
+  };
+
   return (
     <section className={`${styles['container']} ${weather?.current?.isDay && styles['day']}`}>
       {isLoading ? (
@@ -46,13 +52,17 @@ export default function CurrentWeather({ isLoading }) {
             <h2 className={styles['container__location__country']}>{weather?.current?.country}</h2>
           </div>
           <div className={styles['container__temperature']}>
-            <p className={styles['container__temperature__number']}>
-              {weather?.current?.temperature.C}
-              <span>&#xb0;C</span>
-            </p>
-            <p className={styles['container__temperature__text']}>It&apos;s {weather?.current?.conditionText}</p>
+            <p className={styles['container__temperature__number']}>{preferences.unit === 'C' ? weather?.current?.temperature.C : weather?.current?.temperature.F}</p>
+            <button onClick={() => changeUnit('C')} className={`${styles['container__temperature__button']} ${preferences.unit === 'C' && styles['currentUnit']}`}>
+              &#xb0;C
+            </button>
+            <span>|</span>
+            <button onClick={() => changeUnit('F')} className={`${styles['container__temperature__button']} ${preferences.unit !== 'C' && styles['currentUnit']}`}>
+              &#xb0;F
+            </button>
           </div>
-          <p className={styles['container__feelsLike']}>Feels like: {weather?.current?.feelsLike.C}&#xb0;</p>
+          <p className={styles['container__temperature__text']}>It&apos;s {weather?.current?.conditionText}</p>
+          <p className={styles['container__feelsLike']}>Feels like: {preferences.unit === 'C' ? weather?.current?.feelsLike.C : weather?.current?.feelsLike.F}&#xb0;</p>
         </>
       )}
     </section>

@@ -45,14 +45,22 @@
     line-height: 0.9;
     text-align: center;
     margin-top: 20px;
+    display: flex;
     &__number {
       font-size: 72px;
       font-weight: 600;
-      span {
-        font-weight: 400;
-        font-size: 40px;
-        vertical-align: top;
-      }
+    }
+    span {
+      font-weight: 400;
+      font-size: 40px;
+      vertical-align: top;
+    }
+    &__button {
+      background: none;
+      border: none;
+      height: fit-content;
+      font-size: 40px;
+      color: #ddd;
     }
     &__text {
       font-size: 16px;
@@ -67,6 +75,11 @@
 .day {
   background-color: rgba($color: $--day-primary, $alpha: 0.48);
   box-shadow: inset -3px -3px 10px rgba($color: $--day-primary, $alpha: 0.28);
+}
+
+.currentUnit {
+  color: $--light;
+  font-weight: 600;
 }
 
 .active {

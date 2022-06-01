@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 let initialState = {
-  temperature: 'C',
-  speed: 'K',
-  pressure: 'M',
+  unit: 'C',
   location: '',
-  defaultLocation: '3.4129,-76.5191',
+  lastLocation: '3.4129,-76.5191',
   myCities: [],
   loadingCities: true,
 };
@@ -13,14 +11,9 @@ const useInitialState = () => {
   const [preferences, setPreferences] = useState(initialState);
   const [weather, setWeather] = useState({});
 
-  const setTemperature = (payload) => {
-    setPreferences({ ...preferences, temperature: payload });
-    localStorage.setItem('temperature', payload);
-  };
-
-  const setSpeed = (payload) => {
-    setPreferences({ ...preferences, speed: payload });
-    localStorage.setItem('speed', payload);
+  const setUnit = (payload) => {
+    setPreferences({ ...preferences, unit: payload });
+    localStorage.setItem('unit', payload);
   };
 
   const setLocation = (payload) => {
@@ -38,21 +31,17 @@ const useInitialState = () => {
   };
 
   useEffect(() => {
-    const temperatureLocal = localStorage.getItem('temperature');
-    const speedLocal = localStorage.getItem('speed');
+    const unit = localStorage.getItem('unit');
     const myCities = localStorage.getItem('myCities') ? JSON.parse(localStorage.getItem('myCities')) : null;
-    if (temperatureLocal) {
+    if (unit) {
       setPreferences((state) => {
         return {
           ...state,
-          temperature: temperatureLocal,
+          unit: unit,
         };
       });
-    }
-    if (speedLocal) {
-      setPreferences((state) => {
-        return { ...state, speed: speedLocal };
-      });
+    } else {
+      localStorage.setItem('unit', preferences.unit);
     }
     if (myCities) {
       setPreferences((state) => {
@@ -63,7 +52,7 @@ const useInitialState = () => {
     }
   }, []);
 
-  return { preferences, setTemperature, setSpeed, setLocation, weather, setWeather, setMyCities, removeCity };
+  return { preferences, setUnit, setLocation, weather, setWeather, setMyCities, removeCity };
 };
 
 export default useInitialState;
