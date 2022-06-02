@@ -13,6 +13,11 @@ export default function CityWeather({ city }) {
     router.push('/');
   };
 
+  const handleRemove = (e) => {
+    e.stopPropagation();
+    removeCity(city.url);
+  };
+
   return (
     <li className={styles['wrapper']}>
       <div className={styles['container']} onClick={handleClick} onKeyUp={handleClick} role="button" tabIndex={0}>
@@ -26,7 +31,7 @@ export default function CityWeather({ city }) {
             {preferences.unit === 'C' ? city?.current.temperature?.C : city?.current.temperature?.F}
             <span>&#xb0;</span>
           </p>
-          <button onClick={() => removeCity(city.url)} className={styles['container__temperature__remove']}>
+          <button onClick={(e) => handleRemove(e)} className={styles['container__temperature__remove']}>
             X
           </button>
           <figure className={styles['container__temperature__image']}>
