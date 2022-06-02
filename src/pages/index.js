@@ -10,15 +10,17 @@ import styles from '@styles/Home.module.scss';
 
 export default function Home() {
   const { preferences, setLocation, setWeather, weather } = useContext(AppContext);
-  const { lat, lon } = usePosition();
+  const { lat, lon, error } = usePosition();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (lat && lon && !preferences.location) {
       const locationUser = `${lat},${lon}`;
       setLocation(locationUser);
+    } else if (error && !preferences.location) {
+      setLocation(preferences.lastLocation);
     }
-  }, [lat, lon]);
+  }, [lat, lon, error]);
 
   useEffect(() => {
     if (!preferences.location) return;

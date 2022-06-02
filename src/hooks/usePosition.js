@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 export const usePosition = () => {
-  const [position, setPosition] = useState({});
+  const [position, setPosition] = useState({ lon: null, lat: null });
   const [error, setError] = useState(null);
 
   const onSuccess = ({ coords }) => {
@@ -8,7 +8,7 @@ export const usePosition = () => {
   };
 
   const onError = (error) => {
-    setPosition({});
+    setPosition({ lon: null, lat: null });
     setError(error.message);
   };
 
@@ -22,7 +22,6 @@ export const usePosition = () => {
 
     navigator.permissions.query({ name: 'geolocation' }).then(function (permissionStatus) {
       permissionStatus.onchange = function () {
-        console.log('geolocation permission state has changed to ', this.state);
         geo.getCurrentPosition(onSuccess, onError);
       };
     });
