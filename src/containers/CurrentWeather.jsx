@@ -16,20 +16,20 @@ export default function CurrentWeather({ isLoading }) {
         buttonFavoriteRef?.current?.classList.add(styles['active']);
       } else {
         buttonFavoriteRef?.current?.classList.remove(styles['active']);
-        buttonFavoriteRef.current.classList.remove(`${styles['zoomAnimation']}`);
+        buttonFavoriteRef?.current?.classList.remove(`${styles['zoomAnimation']}`);
       }
     }
   }, [weather]);
 
   const toggleAddFavorite = (url) => {
     if (preferences.myCities.includes(url)) {
-      buttonFavoriteRef.current.classList.remove(`${styles['zoomAnimation']}`);
+      buttonFavoriteRef?.current?.classList.remove(`${styles['zoomAnimation']}`);
       removeCity(url);
-      buttonFavoriteRef.current.classList.remove(styles['active']);
+      buttonFavoriteRef?.current?.classList.remove(styles['active']);
     } else {
-      buttonFavoriteRef.current.classList.add(`${styles['zoomAnimation']}`);
+      buttonFavoriteRef?.current?.classList.add(`${styles['zoomAnimation']}`);
       setMyCities(url);
-      buttonFavoriteRef.current.classList.add(styles['active']);
+      buttonFavoriteRef?.current?.classList.add(styles['active']);
     }
   };
   const changeUnit = (unit) => {
