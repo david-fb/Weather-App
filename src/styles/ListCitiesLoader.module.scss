@@ -1,0 +1,19 @@
+@import 'vars';
+.container {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+  gap: 10px;
+  margin-bottom: 30px;
+  &__item {
+    position: relative;
+    width: 100%;
+    height: 100px;
+    background: rgba($color: $--light, $alpha: 0.08);
+    border-radius: 10px;
+    cursor: pointer;
+  }
+}
