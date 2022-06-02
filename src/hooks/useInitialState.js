@@ -50,6 +50,9 @@ const useInitialState = () => {
         return { ...state, myCities: myCities, loadingCities: false };
       });
     } else {
+      setPreferences((state) => {
+        return { ...state, loadingCities: false };
+      });
       localStorage.setItem('myCities', JSON.stringify([]));
     }
     if (lastLocation) {
