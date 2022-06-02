@@ -16,6 +16,7 @@ export default function CurrentWeather({ isLoading }) {
         buttonFavoriteRef?.current?.classList.add(styles['active']);
       } else {
         buttonFavoriteRef?.current?.classList.remove(styles['active']);
+        buttonFavoriteRef.current.classList.remove(`${styles['zoomAnimation']}`);
       }
     }
   }, [weather]);
