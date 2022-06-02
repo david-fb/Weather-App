@@ -16,7 +16,7 @@ export default function MyCities() {
 
   return (
     <main className={`${styles['container']} ${weather?.current?.isDay && styles['day']}`}>
-      <h1>My Cities</h1>
+      <h1 className={styles['container__title']}>My Cities</h1>
       <ListCities cities={cities} />
     </main>
   );
